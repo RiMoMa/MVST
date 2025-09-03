@@ -2,6 +2,7 @@ import numpy as np
 import torch
 import librosa
 import pandas as pd
+from typing import Optional
 from torch.utils.data import Dataset
 
 class CustomListDataset(Dataset):
@@ -14,7 +15,7 @@ class CustomListDataset(Dataset):
         n_fft: int = 1024,
         hop_length: int = 320,
         fmin: int = 0,
-        fmax: int | None = None,
+        fmax: Optional[int] = None,
         pad_seconds: float = 10.0,
         zscore: bool = True,
         mono: bool = True,
