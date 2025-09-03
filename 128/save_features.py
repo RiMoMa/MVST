@@ -29,6 +29,15 @@ from method import PatchMixLoss, PatchMixConLoss
 
 def parse_args():
     parser = argparse.ArgumentParser('argument for supervised training')
+	parser.add_argument("--csv", type=str, required=True,
+		        help="Ruta a CSV con columnas filepath,label[,mode,patient_id,split]")
+	parser.add_argument("--data_split", type=str, default=None,
+		        help="train/valid/test si tu CSV trae columna split")
+	parser.add_argument("--resample_to", type=int, default=16000)
+	parser.add_argument("--pad_seconds", type=float, default=10.0)
+	parser.add_argument("--n_mels", type=int, default=128)
+	parser.add_argument("--n_fft", type=int, default=1024)
+	parser.add_argument("--hop_length", type=int, default=320)
 
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--print_freq', type=int, default=10)
